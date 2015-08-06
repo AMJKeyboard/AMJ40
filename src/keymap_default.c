@@ -9,26 +9,37 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
 #endif
     /* Keymap 0: Default Layer
      * ,-------------------------------------------------.
-     * |Esc  |  Q|  W|  E|  R|  T|  Y|  U|  I|  O|  P|Del|
+     * |Esc | Q|  W|  E|  R|  T|  Y|  U|  I|  O|  P| Bs  |
      * |-------------------------------------------------|
      * |Caps  |  A|  S|  D|  F|  G|  H|  J|  K|  L|  Ent |
      * |-------------------------------------------------|
-     * |Shift   |  Z|  X|  C|  V|  B|  N|  M|  .| SFT|FN0|
+     * |Shift   |  Z|  X|  C|  V|  B|  N|  M|  /| SFT|FN0|
      * |-------------------------------------------------|
      * |Ctrl|Win |Alt |       Space            |Alt |Ctrl|
      * `-------------------------------------------------'
      */
     KEYMAP(
-        ESC, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P, BSLS,\
+        ESC, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P, BSPC,\
         CAPS,A,   S,   D,   F,   G,   H,   J,   K,   L,       ENT,\
-        LSFT,     Z,   X,   C,   V,   B,   N,   M, DOT,RSFT,  FN0,\
+        LSFT,     Z,   X,   C,   V,   B,   N,   M, SLSH,RSFT,  FN0,\
         LCTL,LGUI,LALT,          SPC,                  RALT,RCTL),
 
+    /* Keymap 1: FN Layer
+     * ,-------------------------------------------------.
+     * | ` |  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|Del  |
+     * |-------------------------------------------------|
+     * |   ,  | . | ; | ' | [ | ] | \ | - | = |PgUp|     |
+     * |-------------------------------------------------|
+     * |       |Up|Ins|FN1|FN2|VolU|VolD|Mute|PgDn|   |  |
+     * |-------------------------------------------------|
+     * |Left|Down|Riht|                        |    |    |
+     * `-------------------------------------------------'
+     */
     KEYMAP(
         GRV, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   DEL,\
-        TRNS,TRNS,TRNS,TRNS,TRNS,TRNS,LEFT,DOWN,UP,  RGHT,     TRNS,\
-        TRNS,     TRNS,APP, FN1, FN2, FN3, VOLD,MUTE,COMM,TRNS,FN0,\
-        TRNS,TRNS,TRNS,          TRNS,                    TRNS,TRNS)
+        COMM,DOT,SCLN,QUOT,LBRC,RBRC,BSLS,MINS,EQL,  PGUP,     TRNS,\
+        TRNS,     UP,  INS, FN1, FN2, VOLU,VOLD,MUTE,PGDN,TRNS,TRNS,\
+        LEFT,DOWN,RGHT,          TRNS,                    TRNS,TRNS)
 };
 
 /*
@@ -41,8 +52,7 @@ const uint16_t fn_actions[] PROGMEM = {
 #endif
     [0] = ACTION_LAYER_MOMENTARY(1),
     [1] = ACTION_BACKLIGHT_DECREASE(),
-    [2] = ACTION_BACKLIGHT_TOGGLE(),
-    [3] = ACTION_BACKLIGHT_INCREASE()
+    [2] = ACTION_BACKLIGHT_INCREASE()
 };
 
 #ifdef KEYMAP_IN_EEPROM_ENABLE
