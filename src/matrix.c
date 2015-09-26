@@ -150,8 +150,8 @@ static void  init_cols(void)
     PORTD |= _BV(PD7);
     DDRC &= ~(_BV(PC6) | _BV(PC7));
     PORTC |= (_BV(PC6) | _BV(PC7));
-    DDRB &= ~(_BV(PB4) | _BV(PB5) | _BV(PB6) | _BV(PB7));
-    PORTB |= (_BV(PB4) | _BV(PB5) | _BV(PB6) | _BV(PB7));
+    DDRB &= ~(_BV(PB4) | _BV(PB5) | _BV(PB6));
+    PORTB |= (_BV(PB4) | _BV(PB5) | _BV(PB6));
 
 }
 
@@ -184,7 +184,7 @@ static void init_rows(void)
 static void unselect_rows(void)
 {
     DDRB &= ~(_BV(PB0) | _BV(PB7));
-    PORTB &= ~(_BV(PB1) | _BV(PB7));
+    PORTB &= ~(_BV(PB0) | _BV(PB7));
     DDRD &= ~(_BV(PD4) | _BV(PD5));
     PORTD &= ~(_BV(PD4) | _BV(PD5));
 
