@@ -184,8 +184,8 @@ static void init_rows(void)
 
 static void unselect_rows(void)
 {
-    DDRF &= ~0b00001111
-    PORTF &= ~0b00001111
+    DDRF &= ~0b00001111;
+    PORTF &= ~0b00001111;
 
 }
 
