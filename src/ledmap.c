@@ -34,8 +34,8 @@ void ledmap_led_init(void)
 {
     DDRB |= (1<<PB2);
     PORTB |= (1<<PB2);
-    DDRD  |= (1<<PD6);
-    PORTD &= ~(1<<PD6);
+    DDRB  |= (1<<PB6);
+    PORTB &= ~(1<<PB6);
 }
 
 void ledmap_led_on(uint8_t index)
@@ -45,7 +45,7 @@ void ledmap_led_on(uint8_t index)
             PORTB &= ~(1<<PB2);
             break;
         case 1:
-            PORTD |= (1<<PD6);
+            PORTB |= (1<<PB6);
             break;
     }
 }
@@ -57,7 +57,7 @@ void ledmap_led_off(uint8_t index)
             PORTB |= (1<<PB2);
             break;
         case 1:
-            PORTD &= ~(1<<PD6);
+            PORTB &= ~(1<<PB6);
             break;
     }
 }

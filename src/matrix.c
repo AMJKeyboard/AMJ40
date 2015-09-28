@@ -152,8 +152,8 @@ static void  init_cols(void)
     PORTC |= (_BV(PC6) | _BV(PC7));
     DDRD &= ~(_BV(PD4) | _BV(PD7));
     PORTD |= (_BV(PD4) | _BV(PD7));
-    DDRF &= ~(_BV(PB0) | _BV(PB1) | _BV(PB4) | _BV(PB5) | _BV(PB7));
-    PORTF |= (_BV(PB0) | _BV(PB1) | _BV(PB4) | _BV(PB5) | _BV(PB7));
+    DDRB &= ~(_BV(PB0) | _BV(PB1) | _BV(PB4) | _BV(PB5) | _BV(PB7));
+    PORTB |= (_BV(PB0) | _BV(PB1) | _BV(PB4) | _BV(PB5) | _BV(PB7));
 }
 
 static matrix_row_t read_cols(void)
@@ -184,8 +184,8 @@ static void init_rows(void)
 
 static void unselect_rows(void)
 {
-    DDRF &= ~0b00001111;
-    PORTF &= ~0b00001111;
+    DDRF &= ~(_BV(PF4) | _BV(PF5) | _BV(PF6) | _BV(PF7));
+    PORTF &= ~(_BV(PF4) | _BV(PF5) | _BV(PF6) | _BV(PF7));
 
 }
 
