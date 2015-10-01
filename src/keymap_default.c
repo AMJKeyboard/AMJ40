@@ -11,35 +11,35 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
      * ,-------------------------------------------------.
      * |Esc | Q|  W|  E|  R|  T|  Y|  U|  I|  O|  P| Bs  |
      * |-------------------------------------------------|
-     * |Caps  |  A|  S|  D|  F|  G|  H|  J|  K|  L|  Ent |
+     * |Ctrl  |  A|  S|  D|  F|  G|  H|  J|  K|  L|  Ent |
      * |-------------------------------------------------|
-     * |Shift   |  Z|  X|  C|  V|  B|  N|  M|  /| SFT|FN0|
+     * |Shift   |  Z|  X|  C|  V|  B|  N|  M|  .| SFT|FN0|
      * |-------------------------------------------------|
-     * |Ctrl|Win |Alt |       Space            |Alt |Ctrl|
+     * |Tab |Win |Alt |       Space            |Alt |Win|
      * `-------------------------------------------------'
      */
     KEYMAP(
         ESC, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P, BSPC,\
-        CAPS,A,   S,   D,   F,   G,   H,   J,   K,   L,       ENT,\
-        LSFT,     Z,   X,   C,   V,   B,   N,   M, SLSH,RSFT,  FN0,\
-        LCTL,LGUI,LALT,          SPC,                  RALT,RCTL),
+        LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,       ENT,\
+        LSFT,     Z,   X,   C,   V,   B,   N,   M, DOT,RSFT,  FN0,\
+        TAB,LGUI,LALT,          SPC,                  RALT, RGUI),
 
     /* Keymap 1: FN Layer
      * ,-------------------------------------------------.
      * | ` |  1|  2|  3|  4|  5|  6|  7|  8|  9|  0|Del  |
      * |-------------------------------------------------|
-     * |   ,  | . | ; | ' | [ | ] | \ | - | = |PgUp|     |
+     * |      | [ | Up | ] | \| , | . | / | ; | '  |     |
      * |-------------------------------------------------|
-     * |       |Up|Ins|FN1|FN2|VolU|VolD|Mute|PgDn|   |  |
+     * |      |Lef|Dow|Rig|VolU|VoD|Mut| - | = |     |   |
      * |-------------------------------------------------|
-     * |Left|Down|Riht|                        |    |    |
+     * |Left|Down|Riht|         FN1            |    | FN2|
      * `-------------------------------------------------'
      */
     KEYMAP(
-        GRV, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   DEL,\
-        COMM,DOT,SCLN,QUOT,LBRC,RBRC,BSLS,MINS,EQL,  PGUP,     TRNS,\
-        TRNS,     UP,  INS, FN1, FN2, VOLU,VOLD,MUTE,PGDN,TRNS,TRNS,\
-        LEFT,DOWN,RGHT,          TRNS,                    TRNS,TRNS)
+        GRV, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,  DEL,\
+        TAB,   LBRC,UP,RBRC,BSLS,COMM,DOT,SLSH,SCLN,  QUOT,  TRNS,\
+        TRNS,  LEFT,DOWN,RGHT,VOLU,VOLD,MUTE,MINS,EQL, TRNS, TRNS,\
+        LEFT,DOWN,RGHT,          FN1,                   TRNS,FN2)
 };
 
 /*
@@ -51,8 +51,8 @@ const uint16_t fn_actions[FN_ACTIONS_COUNT] __attribute__ ((section (".keymap.fn
 const uint16_t fn_actions[] PROGMEM = {
 #endif
     [0] = ACTION_LAYER_MOMENTARY(1),
-    [1] = ACTION_BACKLIGHT_DECREASE(),
-    [2] = ACTION_BACKLIGHT_INCREASE()
+    [1] = ACTION_BACKLIGHT_TOGGLE(),
+    [2] = ACTION_BACKLIGHT_STEP(),
 };
 
 #ifdef KEYMAP_IN_EEPROM_ENABLE
